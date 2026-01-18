@@ -1,236 +1,179 @@
-# Medical Telegram Warehouse
+# 🏥 Medical Telegram Warehouse
 
-An end-to-end data pipeline for Telegram medical channels, leveraging dbt for transformation, Dagster for orchestration, and YOLOv8 for data enrichment.
+> Transform raw Telegram channel data into actionable insights for Ethiopian medical businesses
 
-## 🎯 Overview
+Ever wondered what insights you could extract from Telegram channels? This project scrapes, transforms, and analyzes medical marketplace data from Ethiopian Telegram channels, turning messy raw data into clean, queryable insights. 🚀
 
-This project builds a robust data platform that generates actionable insights about Ethiopian medical businesses using data scraped from public Telegram channels.
+## ✨ What This Project Does
 
-**Key Features:**
-- Telegram data extraction using Telethon
-- Data lake storage (JSON files and images)
-- PostgreSQL data warehouse
-- dbt transformations with star schema modeling
-- YOLOv8 image detection for data enrichment
-- FastAPI analytical API
-- Dagster orchestration
+Think of this as a complete data engineering journey:
+
+1. **Scrape** 📱 → Extract messages and images from Telegram channels
+2. **Store** 💾 → Save raw data in a structured data lake
+3. **Transform** 🔄 → Clean and model data using dbt (star schema!)
+4. **Enrich** 🖼️ → Use YOLOv8 to analyze images and classify content
+5. **Expose** 🌐 → Build a FastAPI to serve insights via REST endpoints
+6. **Orchestrate** ⚙️ → Automate everything with Dagster
+
+The end result? A production-ready pipeline that answers questions like:
+- Which products are trending across channels?
+- Do promotional posts get more engagement than product displays?
+- Which channels use the most visual content?
+
+## 🛠️ Tech Stack
+
+- **Python 3.11+** - Core language
+- **Telethon** - Telegram API scraping
+- **PostgreSQL** - Data warehouse
+- **dbt** - SQL transformations & testing
+- **YOLOv8** - Image object detection
+- **FastAPI** - Analytical API
+- **Dagster** - Pipeline orchestration
+- **Docker** - PostgreSQL containerization
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+You'll need:
+- Python 3.11+ (dbt needs 3.11, scraping works with 3.14)
+- Docker Desktop (for PostgreSQL)
+- Telegram account (get API keys from [my.telegram.org](https://my.telegram.org/apps))
+
+### Setup (5 minutes)
+
+```bash
+# 1. Clone and navigate
+cd "/Users/naomi/Shipping a Data Product"
+
+# 2. Create virtual environment
+python3.11 -m venv venv
+source venv/bin/activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Set up Telegram credentials in .env file
+# Copy .env.example to .env and add your API keys
+
+# 5. Start PostgreSQL
+docker compose up -d postgres
+
+# 6. Run scraper
+python src/scraper.py
+```
+
+That's it! 🎉 Check out `QUICKSTART.md` for detailed setup instructions.
+
+## 📊 What You Get
+
+### The Complete Pipeline
+
+```
+📱 Telegram Channels
+    ↓ [Scrape]
+💾 Data Lake (Raw JSON + Images)
+    ↓ [Load]
+🗄️  PostgreSQL Warehouse
+    ↓ [Transform with dbt]
+⭐ Star Schema (Dimensions + Facts)
+    ↓ [Enrich with YOLO]
+🖼️  Image Classifications
+    ↓ [Expose via API]
+🌐 FastAPI Endpoints
+    ↓ [Orchestrate]
+⚙️  Dagster Pipeline
+```
+
+*All automated and monitored!* 🎯
+
+### Key Deliverables
+
+- ✅ **2,500+ messages** scraped and stored
+- ✅ **2,200+ images** analyzed with YOLO
+- ✅ **Star schema** with dimensions and facts
+- ✅ **4 API endpoints** for analytics
+- ✅ **Automated pipeline** with Dagster
 
 ## 📁 Project Structure
 
 ```
-medical-telegram-warehouse/
-├── .vscode/                 # VS Code settings
-├── .github/workflows/      # CI/CD workflows
-├── data/                   # Data storage
-│   └── raw/               # Raw data lake
-│       ├── images/        # Downloaded images
-│       └── telegram_messages/  # JSON message files
-├── logs/                  # Log files
-├── medical_warehouse/     # dbt project
-│   ├── models/
-│   │   ├── staging/      # Staging models
-│   │   └── marts/        # Mart models (star schema)
-│   └── tests/            # dbt tests
-├── src/                   # Source code
-│   └── scraper.py        # Telegram scraper
-├── api/                   # FastAPI application
-├── notebooks/            # Jupyter notebooks
-├── tests/                # Unit tests
-└── scripts/              # Utility scripts
+├── src/                    # Scraping scripts
+│   ├── scraper.py         # Telegram scraper
+│   └── yolo_detect.py     # Image detection
+├── api/                    # FastAPI application
+│   ├── main.py            # API endpoints
+│   └── schemas.py         # Pydantic models
+├── medical_warehouse/      # dbt project
+│   ├── models/            # SQL transformations
+│   └── tests/             # Data quality tests
+├── scripts/               # Utility scripts
+├── data/                  # Data storage
+│   ├── raw/              # Raw data lake
+│   └── processed/        # Processed outputs
+├── screenshots/           # API & Dagster screenshots
+└── pipeline.py            # Dagster orchestration
 ```
 
-## 📦 Prerequisites
+## 🎯 Key Features
 
-Before you begin, ensure you have:
+### 📱 Smart Scraping
+Async processing, automatic rate limit handling, and intelligent image filtering. Scrapes thousands of messages efficiently!
 
-1. **Python 3.11+** installed
-2. **PostgreSQL 15+** (or use Docker)
-3. **Telegram Account** (for API access)
-4. **Git** (for version control)
-5. **Docker & Docker Compose** (optional, for containerized setup)
+### 🔄 Data Transformation  
+Clean staging models → dimensional star schema → comprehensive tests. Everything version-controlled with dbt.
 
-## 🚀 Step-by-Step Setup Guide
+### 🖼️ Image Analysis
+YOLOv8 detects objects and classifies content (promotional, product_display, lifestyle). Found that product displays outperform promotional content! 📊
 
-### Step 1: Clone and Navigate to Project
+### 🌐 Analytical API
+FastAPI with auto-generated docs, type-safe endpoints, and real-time queries. Check out the interactive docs at `/docs`!
 
-```bash
-cd "/Users/naomi/Shipping a Data Product"
-```
+![Top Products Endpoint](screenshots/task4/top_products.png)
 
-### Step 2: Create Python Virtual Environment
+### ⚙️ Pipeline Orchestration
+Dagster manages the entire workflow with beautiful UI, dependency tracking, and retry policies. See your pipeline in action!
 
-```bash
-# Create virtual environment
-python3 -m venv venv
+## 📸 Screenshots
 
-# Activate virtual environment
-# On macOS/Linux:
-source venv/bin/activate
-# On Windows:
-# venv\Scripts\activate
-```
+### FastAPI API Documentation
+![API Docs](screenshots/task4/api_docs.png)
 
-### Step 3: Install Dependencies
+### Dagster Pipeline Orchestration
+![Pipeline Graph](screenshots/task5/pipeline_graph.png)
 
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-```
+*Check out the `screenshots/` folder for more!*
 
-### Step 4: Set Up Telegram API Credentials
+## 🔍 Example Insights
 
-1. **Go to** [https://my.telegram.org/apps](https://my.telegram.org/apps)
-2. **Log in** with your Telegram account
-3. **Create a new application**:
-   - App title: "Medical Warehouse Scraper" (or any name)
-   - Short name: "medwarehouse" (or any short name)
-   - Platform: Desktop
-   - Description: Optional
-4. **Copy your credentials**:
-   - `api_id`: A number (e.g., 12345678)
-   - `api_hash`: A string (e.g., "abcdef1234567890abcdef1234567890")
+From our YOLO analysis, we discovered some interesting patterns:
 
-### Step 5: Configure Environment Variables
+- **58%** of images fall into "other" category (general product shots)
+- **Product displays** outperform promotional content! (625 vs 378 avg views) 📈
+- Most Ethiopian medical businesses focus on direct product showcasing
+- Lifestyle marketing is still rare (only 8.5% of images)
 
-1. **Copy the example environment file**:
-   ```bash
-   cp .env.example .env
-   ```
-
-2. **Edit `.env` file** and add your credentials:
-   ```bash
-   # Open .env in your editor
-   nano .env  # or use VS Code, vim, etc.
-   ```
-
-3. **Fill in your Telegram credentials**:
-   ```env
-   TELEGRAM_API_ID=your_actual_api_id
-   TELEGRAM_API_HASH=your_actual_api_hash
-   TELEGRAM_PHONE=+1234567890  # Your phone number with country code
-   ```
-
-### Step 6: Start PostgreSQL Database (Using Docker)
-
-```bash
-# Start PostgreSQL container
-docker-compose up -d postgres
-
-# Verify it's running
-docker-compose ps
-```
-
-**Alternative:** If you have PostgreSQL installed locally, update the `.env` file with your local database credentials.
-
-### Step 7: Verify Setup
-
-```bash
-# Check if Python can import required packages
-python -c "import telethon; print('Telethon installed successfully')"
-```
-
-## 📊 Task 1: Data Scraping and Collection
-
-### Objective
-
-Build a data scraping pipeline that extracts messages and images from Telegram channels and stores them in a raw data lake.
-
-### Instructions
-
-#### Step 1: Test Telegram Connection
-
-First, let's verify your Telegram credentials work:
-
-```bash
-# Run the scraper (it will prompt for verification code on first run)
-python src/scraper.py
-```
-
-**First-time setup:**
-1. The script will send a verification code to your Telegram account
-2. Enter the code when prompted
-3. If you have 2FA enabled, enter your password when prompted
-4. The session will be saved for future runs
-
-#### Step 2: Run the Scraper
-
-Once authenticated, the scraper will:
-
-1. **Connect to Telegram** using your credentials
-2. **Scrape messages** from configured channels:
-   - `chemed`
-   - `lobelia4cosmetics`
-   - `tikvahpharma`
-   - (and more from your `.env` file)
-3. **Download images** (if present in messages)
-4. **Save data** to the data lake structure
-
-```bash
-# Run the scraper
-python src/scraper.py
-```
-
-#### Step 3: Verify Data Collection
-
-Check that data has been collected:
-
-```bash
-# Check JSON files (messages)
-ls -la data/raw/telegram_messages/
-
-# Check images
-ls -la data/raw/images/
-
-# Check logs
-ls -la logs/
-cat logs/scraper_*.log
-```
-
-#### Step 4: Inspect Collected Data
-
-```bash
-# View a sample JSON file
-cat data/raw/telegram_messages/$(date +%Y-%m-%d)/chemed.json | head -50
-
-# Check image structure
-find data/raw/images -type f | head -10
-```
-
-### Data Lake Structure
-
-The scraper creates the following structure:
-
-```
-data/raw/
-├── telegram_messages/
-│   └── YYYY-MM-DD/          # Partitioned by date
-│       ├── chemed.json      # Messages from each channel
-│       ├── lobelia4cosmetics.json
-│       └── tikvahpharma.json
-└── images/
-    ├── chemed/              # Images organized by channel
-    │   ├── 12345.jpg        # Image files named by message_id
-    │   └── 12346.jpg
-    ├── lobelia4cosmetics/
-    └── tikvahpharma/
-```
-
-### Data Fields Collected
-
-Each message JSON contains:
-
-- `message_id`: Unique identifier
-- `channel_name`: Telegram channel name
-- `message_date`: ISO timestamp
-- `message_text`: Full message content
-- `has_media`: Boolean indicating media presence
-- `image_path`: Relative path to downloaded image
-- `views`: Number of views
-- `forwards`: Number of forwards
+![Visual Content Analysis](screenshots/task4/visual_content.png)
 
 
 
+## 🐛 Common Issues
+
+**Python version conflicts?**
+- Use Python 3.11 for dbt (in `medical_warehouse/venv`)
+- Python 3.14 works fine for scraping
+
+**PostgreSQL connection failed?**
+- Make sure Docker is running: `docker compose ps`
+- Check `.env` has correct password
+
+**dbt not found?**
+- Use the venv in `medical_warehouse/`: `../medical_warehouse/venv/bin/dbt run`
 
 
+
+---
+
+**Built with ❤️ for data engineering learning**
 
 
