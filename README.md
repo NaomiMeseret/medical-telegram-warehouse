@@ -234,6 +234,3 @@ Each message JSON contains:
 
 
 
----
-
-**Happy Data Engineering! 🚀**
