@@ -1,0 +1,11 @@
+# Minimal requirements for Task 1: Telegram Scraping Only
+# These packages work with Python 3.14 and don't require compilation
+
+# Telegram Scraping
+telethon==1.34.0
+
+# Environment variables
+python-dotenv==1.0.0
+
+# Note: For full project requirements (including pandas, dbt, FastAPI, etc.),
+# use requirements.txt with Python 3.11 or 3.12

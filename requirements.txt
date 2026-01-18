@@ -1,0 +1,33 @@
+# Telegram Scraping
+telethon==1.34.0
+
+# Data Processing
+pandas>=2.2.0
+python-dotenv==1.0.0
+
+# API Framework
+fastapi==0.109.0
+uvicorn==0.27.0
+pydantic==2.5.3
+
+# Database (not needed for Task 1 - only for Tasks 2+)
+# psycopg2-binary==2.9.9  # May need PostgreSQL development libraries for Python 3.14
+psycopg2-binary>=2.9.9  # Try newer version for Python 3.14 compatibility
+sqlalchemy==2.0.25
+
+# dbt
+dbt-core==1.7.13
+dbt-postgres==1.7.13
+
+# Image Processing & Object Detection
+ultralytics==8.1.0
+pillow==10.2.0
+opencv-python==4.9.0.80
+
+# Orchestration
+dagster==1.5.9
+dagster-postgres==1.5.9
+
+# Utilities
+requests==2.31.0
+python-dateutil==2.8.2
