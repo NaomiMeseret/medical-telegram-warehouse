@@ -237,64 +237,11 @@ Each message JSON contains:
 - `views`: Number of views
 - `forwards`: Number of forwards
 
-### Troubleshooting
 
-**Issue: "Missing required environment variables"**
-- Solution: Check that `.env` file exists and contains all required variables
 
-**Issue: "Rate limit hit"**
-- Solution: The scraper automatically handles rate limits by waiting. This is normal for large channels.
 
-**Issue: "Channel not found"**
-- Solution: Verify channel names in `.env` are correct (can be with or without @)
 
-**Issue: "Permission denied" when saving files**
-- Solution: Ensure the `data/raw/` directory has write permissions
 
-## 📝 Next Steps
-
-After completing Task 1, you will:
-
-1. **Task 2**: Set up PostgreSQL schema and load raw data
-2. **Task 3**: Build dbt models (staging and marts)
-3. **Task 4**: Implement YOLOv8 image detection
-4. **Task 5**: Create FastAPI analytical endpoints
-5. **Task 6**: Set up Dagster orchestration
-
-## 🔧 Development Tips
-
-### Running Scraper for Specific Channels
-
-You can modify the `TELEGRAM_CHANNELS` in `.env` or pass channels directly in the script.
-
-### Limiting Messages per Channel
-
-Edit `src/scraper.py` and change:
-```python
-messages = await scraper.scrape_channel(channel, limit=100)  # Only get 100 messages
-```
-
-### Viewing Logs in Real-Time
-
-```bash
-# Watch log file
-tail -f logs/scraper_*.log
-```
-
-## 📚 Additional Resources
-
-- [Telethon Documentation](https://docs.telethon.dev/)
-- [dbt Documentation](https://docs.getdbt.com/)
-- [FastAPI Documentation](https://fastapi.tiangolo.com/)
-- [Dagster Documentation](https://docs.dagster.io/)
-
-## 🤝 Contributing
-
-This is a learning project. Feel free to experiment and extend the functionality!
-
-## 📄 License
-
-This project is for educational purposes.
 
 ---
 
