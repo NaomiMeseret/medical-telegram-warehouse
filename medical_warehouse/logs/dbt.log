@@ -1,0 +1,511 @@
+[0m13:57:56.736186 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1096d8490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a3a1410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a377f50>]}
+
+
+============================== 13:57:56.742156 | 76189988-ee60-464c-b09a-a0180f1ddbbb ==============================
+[0m13:57:56.742156 [info ] [MainThread]: Running with dbt=1.11.2
+[0m13:57:56.742457 [debug] [MainThread]: running dbt with arguments {'log_path': '/Users/naomi/Shipping a Data Product/medical_warehouse/logs', 'invocation_command': 'dbt debug', 'profiles_dir': '/Users/naomi/Shipping a Data Product/medical_warehouse', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'use_experimental_parser': 'False', 'debug': 'False', 'warn_error': 'None', 'write_json': 'True', 'use_colors': 'True', 'version_check': 'True', 'partial_parse': 'True', 'log_cache_events': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'no_print': 'None', 'quiet': 'False', 'cache_selected_only': 'False', 'target_path': 'None', 'printer_width': '80', 'indirect_selection': 'eager', 'static_parser': 'True', 'introspect': 'True'}
+[0m13:57:56.749348 [info ] [MainThread]: dbt version: 1.11.2
+[0m13:57:56.749575 [info ] [MainThread]: python version: 3.11.14
+[0m13:57:56.749785 [info ] [MainThread]: python path: /Users/naomi/Shipping a Data Product/medical_warehouse/venv/bin/python3.11
+[0m13:57:56.749944 [info ] [MainThread]: os info: macOS-14.5-arm64-arm-64bit
+[0m13:57:58.450427 [info ] [MainThread]: Using profiles dir at /Users/naomi/Shipping a Data Product/medical_warehouse
+[0m13:57:58.450764 [info ] [MainThread]: Using profiles.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/profiles.yml
+[0m13:57:58.450943 [info ] [MainThread]: Using dbt_project.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/dbt_project.yml
+[0m13:57:58.451229 [info ] [MainThread]: adapter type: postgres
+[0m13:57:58.451397 [info ] [MainThread]: adapter version: 1.10.0
+[0m13:57:58.497748 [info ] [MainThread]: Configuration:
+[0m13:57:58.498030 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:57:58.498154 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m13:57:58.498263 [info ] [MainThread]: Required dependencies:
+[0m13:57:58.498418 [debug] [MainThread]: Executing "git --help"
+[0m13:57:58.511627 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c name=value]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   reset      Reset current HEAD to the specified state\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   branch     List, create, or delete branches\n   checkout   Switch branches or restore working tree files\n   commit     Record changes to the repository\n   diff       Show changes between commits, commit and working tree, etc\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\n""
+[0m13:57:58.512154 [debug] [MainThread]: STDERR: "b''"
+[0m13:57:58.512322 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m13:57:58.512478 [info ] [MainThread]: Connection:
+[0m13:57:58.512638 [info ] [MainThread]:   host: localhost
+[0m13:57:58.512751 [info ] [MainThread]:   port: 5432
+[0m13:57:58.512850 [info ] [MainThread]:   user: postgres
+[0m13:57:58.512955 [info ] [MainThread]:   database: medical_warehouse
+[0m13:57:58.513051 [info ] [MainThread]:   schema: staging
+[0m13:57:58.513148 [info ] [MainThread]:   connect_timeout: 10
+[0m13:57:58.513246 [info ] [MainThread]:   role: None
+[0m13:57:58.513347 [info ] [MainThread]:   search_path: None
+[0m13:57:58.513445 [info ] [MainThread]:   keepalives_idle: 0
+[0m13:57:58.513541 [info ] [MainThread]:   sslmode: None
+[0m13:57:58.513639 [info ] [MainThread]:   sslcert: None
+[0m13:57:58.513738 [info ] [MainThread]:   sslkey: None
+[0m13:57:58.513833 [info ] [MainThread]:   sslrootcert: None
+[0m13:57:58.513931 [info ] [MainThread]:   application_name: dbt
+[0m13:57:58.514032 [info ] [MainThread]:   retries: 1
+[0m13:57:58.514301 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m13:57:58.691355 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m13:57:58.708312 [debug] [MainThread]: Using postgres connection "debug"
+[0m13:57:58.708465 [debug] [MainThread]: On debug: select 1 as id
+[0m13:57:58.708581 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:57:58.796528 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "localhost" (127.0.0.1), port 5432 failed: fe_sendauth: no password supplied
+
+[0m13:57:58.801097 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m13:57:58.801301 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m13:57:58.801475 [debug] [MainThread]: On debug: No close available on handle
+[0m13:57:58.801658 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m13:57:58.801832 [info ] [MainThread]: [31m1 check failed:[0m
+[0m13:57:58.801984 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: fe_sendauth: no password supplied
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m13:57:58.944277 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 2.2513537, "process_in_blocks": "0", "process_kernel_time": 0.184998, "process_mem_max_rss": "132890624", "process_out_blocks": "0", "process_user_time": 0.872902}
+[0m13:57:58.945351 [debug] [MainThread]: Command `dbt debug` failed at 13:57:58.945194 after 2.25 seconds
+[0m13:57:58.945907 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:57:58.946565 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a1b55d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a3d1990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104dd7650>]}
+[0m13:57:58.947143 [debug] [MainThread]: Flushing usage events
+[0m13:57:59.913331 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:59:10.115934 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1076fead0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103e81050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107575ed0>]}
+
+
+============================== 13:59:10.118167 | 649d43b8-6e3e-42be-9da1-61bc52f3e10b ==============================
+[0m13:59:10.118167 [info ] [MainThread]: Running with dbt=1.11.2
+[0m13:59:10.118441 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'warn_error': 'None', 'log_path': '/Users/naomi/Shipping a Data Product/medical_warehouse/logs', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt debug', 'profiles_dir': '/Users/naomi/Shipping a Data Product/medical_warehouse', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'use_colors': 'True', 'empty': 'None', 'log_format': 'default', 'write_json': 'True', 'introspect': 'True', 'cache_selected_only': 'False', 'no_print': 'None', 'version_check': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'indirect_selection': 'eager', 'quiet': 'False', 'use_experimental_parser': 'False', 'static_parser': 'True'}
+[0m13:59:10.126179 [info ] [MainThread]: dbt version: 1.11.2
+[0m13:59:10.126376 [info ] [MainThread]: python version: 3.11.14
+[0m13:59:10.126512 [info ] [MainThread]: python path: /Users/naomi/Shipping a Data Product/medical_warehouse/venv/bin/python3.11
+[0m13:59:10.126625 [info ] [MainThread]: os info: macOS-14.5-arm64-arm-64bit
+[0m13:59:10.162067 [info ] [MainThread]: Using profiles dir at /Users/naomi/Shipping a Data Product/medical_warehouse
+[0m13:59:10.162288 [info ] [MainThread]: Using profiles.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/profiles.yml
+[0m13:59:10.162412 [info ] [MainThread]: Using dbt_project.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/dbt_project.yml
+[0m13:59:10.162614 [info ] [MainThread]: adapter type: postgres
+[0m13:59:10.162728 [info ] [MainThread]: adapter version: 1.10.0
+[0m13:59:10.198412 [info ] [MainThread]: Configuration:
+[0m13:59:10.198656 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:59:10.198785 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m13:59:10.198891 [info ] [MainThread]: Required dependencies:
+[0m13:59:10.199038 [debug] [MainThread]: Executing "git --help"
+[0m13:59:10.209273 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c name=value]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   reset      Reset current HEAD to the specified state\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   branch     List, create, or delete branches\n   checkout   Switch branches or restore working tree files\n   commit     Record changes to the repository\n   diff       Show changes between commits, commit and working tree, etc\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\n""
+[0m13:59:10.209624 [debug] [MainThread]: STDERR: "b''"
+[0m13:59:10.209770 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m13:59:10.209896 [info ] [MainThread]: Connection:
+[0m13:59:10.210036 [info ] [MainThread]:   host: localhost
+[0m13:59:10.210143 [info ] [MainThread]:   port: 5432
+[0m13:59:10.210243 [info ] [MainThread]:   user: postgres
+[0m13:59:10.210342 [info ] [MainThread]:   database: medical_warehouse
+[0m13:59:10.210441 [info ] [MainThread]:   schema: staging
+[0m13:59:10.210538 [info ] [MainThread]:   connect_timeout: 10
+[0m13:59:10.210638 [info ] [MainThread]:   role: None
+[0m13:59:10.210736 [info ] [MainThread]:   search_path: None
+[0m13:59:10.210834 [info ] [MainThread]:   keepalives_idle: 0
+[0m13:59:10.210933 [info ] [MainThread]:   sslmode: None
+[0m13:59:10.211030 [info ] [MainThread]:   sslcert: None
+[0m13:59:10.211126 [info ] [MainThread]:   sslkey: None
+[0m13:59:10.211222 [info ] [MainThread]:   sslrootcert: None
+[0m13:59:10.211320 [info ] [MainThread]:   application_name: dbt
+[0m13:59:10.211416 [info ] [MainThread]:   retries: 1
+[0m13:59:10.211646 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m13:59:10.251010 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m13:59:10.267899 [debug] [MainThread]: Using postgres connection "debug"
+[0m13:59:10.268072 [debug] [MainThread]: On debug: select 1 as id
+[0m13:59:10.268196 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:59:10.296594 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+[0m13:59:10.303219 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m13:59:10.303348 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m13:59:10.303468 [debug] [MainThread]: On debug: No close available on handle
+[0m13:59:10.303591 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m13:59:10.303714 [info ] [MainThread]: [31m1 check failed:[0m
+[0m13:59:10.303827 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m13:59:10.305135 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.21597512, "process_in_blocks": "0", "process_kernel_time": 0.119504, "process_mem_max_rss": "126238720", "process_out_blocks": "0", "process_user_time": 0.588292}
+[0m13:59:10.305378 [debug] [MainThread]: Command `dbt debug` failed at 13:59:10.305335 after 0.22 seconds
+[0m13:59:10.305539 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:59:10.305682 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107d4ad10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078e0790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1022e3690>]}
+[0m13:59:10.305851 [debug] [MainThread]: Flushing usage events
+[0m13:59:11.202155 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:00:15.403704 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10705ac10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107061410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107071d10>]}
+
+
+============================== 14:00:15.405826 | f29d00f2-c2ad-4a12-bca6-cff7888791b0 ==============================
+[0m14:00:15.405826 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:00:15.406100 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'empty': 'None', 'printer_width': '80', 'partial_parse': 'True', 'target_path': 'None', 'cache_selected_only': 'False', 'version_check': 'True', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'log_path': '/Users/naomi/Shipping a Data Product/medical_warehouse/logs', 'log_format': 'default', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'use_colors': 'True', 'invocation_command': 'dbt debug', 'profiles_dir': '/Users/naomi/Shipping a Data Product/medical_warehouse', 'write_json': 'True', 'warn_error': 'None', 'quiet': 'False', 'indirect_selection': 'eager', 'debug': 'False', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False'}
+[0m14:00:15.413559 [info ] [MainThread]: dbt version: 1.11.2
+[0m14:00:15.413763 [info ] [MainThread]: python version: 3.11.14
+[0m14:00:15.413908 [info ] [MainThread]: python path: /Users/naomi/Shipping a Data Product/medical_warehouse/venv/bin/python3.11
+[0m14:00:15.414028 [info ] [MainThread]: os info: macOS-14.5-arm64-arm-64bit
+[0m14:00:15.448618 [info ] [MainThread]: Using profiles dir at /Users/naomi/Shipping a Data Product/medical_warehouse
+[0m14:00:15.448840 [info ] [MainThread]: Using profiles.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/profiles.yml
+[0m14:00:15.448966 [info ] [MainThread]: Using dbt_project.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/dbt_project.yml
+[0m14:00:15.449170 [info ] [MainThread]: adapter type: postgres
+[0m14:00:15.449284 [info ] [MainThread]: adapter version: 1.10.0
+[0m14:00:15.484758 [info ] [MainThread]: Configuration:
+[0m14:00:15.484988 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:00:15.485116 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m14:00:15.485224 [info ] [MainThread]: Required dependencies:
+[0m14:00:15.485367 [debug] [MainThread]: Executing "git --help"
+[0m14:00:15.499985 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c name=value]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   reset      Reset current HEAD to the specified state\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   branch     List, create, or delete branches\n   checkout   Switch branches or restore working tree files\n   commit     Record changes to the repository\n   diff       Show changes between commits, commit and working tree, etc\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\n""
+[0m14:00:15.500386 [debug] [MainThread]: STDERR: "b''"
+[0m14:00:15.500534 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:00:15.500711 [info ] [MainThread]: Connection:
+[0m14:00:15.501081 [info ] [MainThread]:   host: localhost
+[0m14:00:15.501245 [info ] [MainThread]:   port: 5432
+[0m14:00:15.501349 [info ] [MainThread]:   user: postgres
+[0m14:00:15.501450 [info ] [MainThread]:   database: medical_warehouse
+[0m14:00:15.501546 [info ] [MainThread]:   schema: staging
+[0m14:00:15.501645 [info ] [MainThread]:   connect_timeout: 10
+[0m14:00:15.501744 [info ] [MainThread]:   role: None
+[0m14:00:15.501846 [info ] [MainThread]:   search_path: None
+[0m14:00:15.501942 [info ] [MainThread]:   keepalives_idle: 0
+[0m14:00:15.502040 [info ] [MainThread]:   sslmode: None
+[0m14:00:15.502138 [info ] [MainThread]:   sslcert: None
+[0m14:00:15.502234 [info ] [MainThread]:   sslkey: None
+[0m14:00:15.502331 [info ] [MainThread]:   sslrootcert: None
+[0m14:00:15.502429 [info ] [MainThread]:   application_name: dbt
+[0m14:00:15.502526 [info ] [MainThread]:   retries: 1
+[0m14:00:15.502765 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:00:15.542244 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m14:00:15.557215 [debug] [MainThread]: Using postgres connection "debug"
+[0m14:00:15.557378 [debug] [MainThread]: On debug: select 1 as id
+[0m14:00:15.557486 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:00:15.581523 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+[0m14:00:15.588279 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m14:00:15.588393 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m14:00:15.588515 [debug] [MainThread]: On debug: No close available on handle
+[0m14:00:15.588647 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m14:00:15.588778 [info ] [MainThread]: [31m1 check failed:[0m
+[0m14:00:15.588889 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m14:00:15.590198 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.21368624, "process_in_blocks": "0", "process_kernel_time": 0.118446, "process_mem_max_rss": "126304256", "process_out_blocks": "0", "process_user_time": 0.59441}
+[0m14:00:15.590419 [debug] [MainThread]: Command `dbt debug` failed at 14:00:15.590376 after 0.21 seconds
+[0m14:00:15.590569 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:00:15.590728 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106ef6390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1071e2650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x100baa750>]}
+[0m14:00:15.590910 [debug] [MainThread]: Flushing usage events
+[0m14:00:16.559391 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:01:39.530249 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a65aa90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a661410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a671e90>]}
+
+
+============================== 14:01:39.532425 | 05bae4d5-7413-43c8-ae6e-f9a156b7c6cb ==============================
+[0m14:01:39.532425 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:01:39.532708 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'log_cache_events': 'False', 'use_colors': 'True', 'log_path': '/Users/naomi/Shipping a Data Product/medical_warehouse/logs', 'no_print': 'None', 'indirect_selection': 'eager', 'static_parser': 'True', 'profiles_dir': '/Users/naomi/Shipping a Data Product/medical_warehouse', 'empty': 'None', 'log_format': 'default', 'use_experimental_parser': 'False', 'printer_width': '80', 'quiet': 'False', 'invocation_command': 'dbt debug', 'introspect': 'True', 'version_check': 'True', 'debug': 'False', 'partial_parse': 'True', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'warn_error': 'None'}
+[0m14:01:39.540218 [info ] [MainThread]: dbt version: 1.11.2
+[0m14:01:39.540414 [info ] [MainThread]: python version: 3.11.14
+[0m14:01:39.540554 [info ] [MainThread]: python path: /Users/naomi/Shipping a Data Product/medical_warehouse/venv/bin/python3.11
+[0m14:01:39.540674 [info ] [MainThread]: os info: macOS-14.5-arm64-arm-64bit
+[0m14:01:39.574556 [info ] [MainThread]: Using profiles dir at /Users/naomi/Shipping a Data Product/medical_warehouse
+[0m14:01:39.574790 [info ] [MainThread]: Using profiles.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/profiles.yml
+[0m14:01:39.574920 [info ] [MainThread]: Using dbt_project.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/dbt_project.yml
+[0m14:01:39.575130 [info ] [MainThread]: adapter type: postgres
+[0m14:01:39.575243 [info ] [MainThread]: adapter version: 1.10.0
+[0m14:01:39.610949 [info ] [MainThread]: Configuration:
+[0m14:01:39.611181 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:01:39.611301 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m14:01:39.611407 [info ] [MainThread]: Required dependencies:
+[0m14:01:39.611546 [debug] [MainThread]: Executing "git --help"
+[0m14:01:39.626896 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c name=value]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   reset      Reset current HEAD to the specified state\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   branch     List, create, or delete branches\n   checkout   Switch branches or restore working tree files\n   commit     Record changes to the repository\n   diff       Show changes between commits, commit and working tree, etc\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\n""
+[0m14:01:39.627408 [debug] [MainThread]: STDERR: "b''"
+[0m14:01:39.627564 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:01:39.627712 [info ] [MainThread]: Connection:
+[0m14:01:39.627855 [info ] [MainThread]:   host: localhost
+[0m14:01:39.627957 [info ] [MainThread]:   port: 5432
+[0m14:01:39.628059 [info ] [MainThread]:   user: postgres
+[0m14:01:39.628157 [info ] [MainThread]:   database: medical_warehouse
+[0m14:01:39.628256 [info ] [MainThread]:   schema: staging
+[0m14:01:39.628352 [info ] [MainThread]:   connect_timeout: 10
+[0m14:01:39.628448 [info ] [MainThread]:   role: None
+[0m14:01:39.628549 [info ] [MainThread]:   search_path: None
+[0m14:01:39.628643 [info ] [MainThread]:   keepalives_idle: 0
+[0m14:01:39.628741 [info ] [MainThread]:   sslmode: None
+[0m14:01:39.628837 [info ] [MainThread]:   sslcert: None
+[0m14:01:39.628933 [info ] [MainThread]:   sslkey: None
+[0m14:01:39.629029 [info ] [MainThread]:   sslrootcert: None
+[0m14:01:39.629126 [info ] [MainThread]:   application_name: dbt
+[0m14:01:39.629222 [info ] [MainThread]:   retries: 1
+[0m14:01:39.629448 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:01:39.667942 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m14:01:39.684815 [debug] [MainThread]: Using postgres connection "debug"
+[0m14:01:39.684982 [debug] [MainThread]: On debug: select 1 as id
+[0m14:01:39.685099 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:01:39.721996 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+[0m14:01:39.728416 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m14:01:39.728534 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m14:01:39.728685 [debug] [MainThread]: On debug: No close available on handle
+[0m14:01:39.728829 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m14:01:39.728975 [info ] [MainThread]: [31m1 check failed:[0m
+[0m14:01:39.729086 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m14:01:39.730219 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.22700825, "process_in_blocks": "0", "process_kernel_time": 0.12457, "process_mem_max_rss": "126533632", "process_out_blocks": "0", "process_user_time": 0.592609}
+[0m14:01:39.730409 [debug] [MainThread]: Command `dbt debug` failed at 14:01:39.730371 after 0.23 seconds
+[0m14:01:39.730534 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:01:39.730665 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a661090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108aea990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10527f690>]}
+[0m14:01:39.730824 [debug] [MainThread]: Flushing usage events
+[0m14:01:40.652573 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:08:09.416547 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109395dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1094113d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109411990>]}
+
+
+============================== 14:08:09.418762 | d27640ab-b144-48af-95d4-6e512228c060 ==============================
+[0m14:08:09.418762 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:08:09.419041 [debug] [MainThread]: running dbt with arguments {'introspect': 'True', 'log_path': '/Users/naomi/Shipping a Data Product/medical_warehouse/logs', 'use_colors': 'True', 'warn_error': 'None', 'profiles_dir': '/Users/naomi/Shipping a Data Product/medical_warehouse', 'indirect_selection': 'eager', 'fail_fast': 'False', 'static_parser': 'True', 'write_json': 'True', 'target_path': 'None', 'invocation_command': 'dbt debug', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'printer_width': '80', 'log_cache_events': 'False', 'version_check': 'True', 'no_print': 'None', 'partial_parse': 'True', 'use_experimental_parser': 'False', 'empty': 'None'}
+[0m14:08:09.426692 [info ] [MainThread]: dbt version: 1.11.2
+[0m14:08:09.426897 [info ] [MainThread]: python version: 3.11.14
+[0m14:08:09.427039 [info ] [MainThread]: python path: /Users/naomi/Shipping a Data Product/medical_warehouse/venv/bin/python3.11
+[0m14:08:09.427159 [info ] [MainThread]: os info: macOS-14.5-arm64-arm-64bit
+[0m14:08:09.461320 [info ] [MainThread]: Using profiles dir at /Users/naomi/Shipping a Data Product/medical_warehouse
+[0m14:08:09.461543 [info ] [MainThread]: Using profiles.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/profiles.yml
+[0m14:08:09.461671 [info ] [MainThread]: Using dbt_project.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/dbt_project.yml
+[0m14:08:09.461876 [info ] [MainThread]: adapter type: postgres
+[0m14:08:09.461987 [info ] [MainThread]: adapter version: 1.10.0
+[0m14:08:09.497009 [info ] [MainThread]: Configuration:
+[0m14:08:09.497235 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:08:09.497357 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m14:08:09.497468 [info ] [MainThread]: Required dependencies:
+[0m14:08:09.497613 [debug] [MainThread]: Executing "git --help"
+[0m14:08:09.512228 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c name=value]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   reset      Reset current HEAD to the specified state\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   branch     List, create, or delete branches\n   checkout   Switch branches or restore working tree files\n   commit     Record changes to the repository\n   diff       Show changes between commits, commit and working tree, etc\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\n""
+[0m14:08:09.512668 [debug] [MainThread]: STDERR: "b''"
+[0m14:08:09.512837 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:08:09.512982 [info ] [MainThread]: Connection:
+[0m14:08:09.513123 [info ] [MainThread]:   host: localhost
+[0m14:08:09.513227 [info ] [MainThread]:   port: 5432
+[0m14:08:09.513333 [info ] [MainThread]:   user: postgres
+[0m14:08:09.513429 [info ] [MainThread]:   database: medical_warehouse
+[0m14:08:09.513526 [info ] [MainThread]:   schema: staging
+[0m14:08:09.513621 [info ] [MainThread]:   connect_timeout: 10
+[0m14:08:09.513719 [info ] [MainThread]:   role: None
+[0m14:08:09.513816 [info ] [MainThread]:   search_path: None
+[0m14:08:09.513910 [info ] [MainThread]:   keepalives_idle: 0
+[0m14:08:09.514006 [info ] [MainThread]:   sslmode: None
+[0m14:08:09.514100 [info ] [MainThread]:   sslcert: None
+[0m14:08:09.514195 [info ] [MainThread]:   sslkey: None
+[0m14:08:09.514289 [info ] [MainThread]:   sslrootcert: None
+[0m14:08:09.514385 [info ] [MainThread]:   application_name: dbt
+[0m14:08:09.514480 [info ] [MainThread]:   retries: 1
+[0m14:08:09.514709 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:08:09.553765 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m14:08:09.570626 [debug] [MainThread]: Using postgres connection "debug"
+[0m14:08:09.570787 [debug] [MainThread]: On debug: select 1 as id
+[0m14:08:09.570898 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:08:09.595229 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "localhost" (127.0.0.1), port 5432 failed: fe_sendauth: no password supplied
+
+[0m14:08:09.598282 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m14:08:09.598422 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m14:08:09.598558 [debug] [MainThread]: On debug: No close available on handle
+[0m14:08:09.598708 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m14:08:09.598845 [info ] [MainThread]: [31m1 check failed:[0m
+[0m14:08:09.598956 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: fe_sendauth: no password supplied
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m14:08:09.600185 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.20926717, "process_in_blocks": "0", "process_kernel_time": 0.112726, "process_mem_max_rss": "125517824", "process_out_blocks": "0", "process_user_time": 0.595913}
+[0m14:08:09.600384 [debug] [MainThread]: Command `dbt debug` failed at 14:08:09.600346 after 0.21 seconds
+[0m14:08:09.600520 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:08:09.600659 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104cbf6d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104cbf650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a260b10>]}
+[0m14:08:09.600823 [debug] [MainThread]: Flushing usage events
+[0m14:08:10.551228 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:15:23.877399 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107882950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078f4f50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078f5550>]}
+
+
+============================== 14:15:23.879557 | fa97eded-6d95-49dd-936c-eaf269b9dca1 ==============================
+[0m14:15:23.879557 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:15:23.879820 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'fail_fast': 'False', 'static_parser': 'True', 'write_json': 'True', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt debug', 'version_check': 'True', 'printer_width': '80', 'log_path': '/Users/naomi/Shipping a Data Product/medical_warehouse/logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'None', 'profiles_dir': '/Users/naomi/Shipping a Data Product/medical_warehouse', 'log_format': 'default', 'warn_error': 'None', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'target_path': 'None', 'debug': 'False', 'indirect_selection': 'eager', 'quiet': 'False', 'cache_selected_only': 'False', 'introspect': 'True', 'use_colors': 'True'}
+[0m14:15:23.888638 [info ] [MainThread]: dbt version: 1.11.2
+[0m14:15:23.890005 [info ] [MainThread]: python version: 3.11.14
+[0m14:15:23.890201 [info ] [MainThread]: python path: /Users/naomi/Shipping a Data Product/medical_warehouse/venv/bin/python3.11
+[0m14:15:23.890327 [info ] [MainThread]: os info: macOS-14.5-arm64-arm-64bit
+[0m14:15:23.923126 [info ] [MainThread]: Using profiles dir at /Users/naomi/Shipping a Data Product/medical_warehouse
+[0m14:15:23.923354 [info ] [MainThread]: Using profiles.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/profiles.yml
+[0m14:15:23.923477 [info ] [MainThread]: Using dbt_project.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/dbt_project.yml
+[0m14:15:23.923676 [info ] [MainThread]: adapter type: postgres
+[0m14:15:23.923785 [info ] [MainThread]: adapter version: 1.10.0
+[0m14:15:23.959638 [info ] [MainThread]: Configuration:
+[0m14:15:23.959875 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:15:23.959999 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m14:15:23.960109 [info ] [MainThread]: Required dependencies:
+[0m14:15:23.960247 [debug] [MainThread]: Executing "git --help"
+[0m14:15:23.972070 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c name=value]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   reset      Reset current HEAD to the specified state\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   branch     List, create, or delete branches\n   checkout   Switch branches or restore working tree files\n   commit     Record changes to the repository\n   diff       Show changes between commits, commit and working tree, etc\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\n""
+[0m14:15:23.972502 [debug] [MainThread]: STDERR: "b''"
+[0m14:15:23.972654 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:15:23.972793 [info ] [MainThread]: Connection:
+[0m14:15:23.972943 [info ] [MainThread]:   host: localhost
+[0m14:15:23.973046 [info ] [MainThread]:   port: 5432
+[0m14:15:23.973148 [info ] [MainThread]:   user: postgres
+[0m14:15:23.973246 [info ] [MainThread]:   database: medical_warehouse
+[0m14:15:23.973345 [info ] [MainThread]:   schema: staging
+[0m14:15:23.973444 [info ] [MainThread]:   connect_timeout: 10
+[0m14:15:23.973540 [info ] [MainThread]:   role: None
+[0m14:15:23.973642 [info ] [MainThread]:   search_path: None
+[0m14:15:23.973737 [info ] [MainThread]:   keepalives_idle: 0
+[0m14:15:23.973835 [info ] [MainThread]:   sslmode: None
+[0m14:15:23.973933 [info ] [MainThread]:   sslcert: None
+[0m14:15:23.974027 [info ] [MainThread]:   sslkey: None
+[0m14:15:23.974122 [info ] [MainThread]:   sslrootcert: None
+[0m14:15:23.974219 [info ] [MainThread]:   application_name: dbt
+[0m14:15:23.974316 [info ] [MainThread]:   retries: 1
+[0m14:15:23.974554 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:15:24.013610 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m14:15:24.030905 [debug] [MainThread]: Using postgres connection "debug"
+[0m14:15:24.031082 [debug] [MainThread]: On debug: select 1 as id
+[0m14:15:24.031201 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:15:24.060896 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+[0m14:15:24.067840 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m14:15:24.067991 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m14:15:24.068107 [debug] [MainThread]: On debug: No close available on handle
+[0m14:15:24.068228 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m14:15:24.068348 [info ] [MainThread]: [31m1 check failed:[0m
+[0m14:15:24.068461 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m14:15:24.069827 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.22305575, "process_in_blocks": "0", "process_kernel_time": 0.122922, "process_mem_max_rss": "125943808", "process_out_blocks": "0", "process_user_time": 0.591669}
+[0m14:15:24.070005 [debug] [MainThread]: Command `dbt debug` failed at 14:15:24.069969 after 0.22 seconds
+[0m14:15:24.070131 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:15:24.070258 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1031a3710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1031a3690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107a82a10>]}
+[0m14:15:24.070414 [debug] [MainThread]: Flushing usage events
+[0m14:15:25.019532 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:18:56.350138 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c05b8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c05a750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c06d3d0>]}
+
+
+============================== 14:18:56.352343 | d1d1d4cc-56ce-491c-ad4d-b95d24db96fd ==============================
+[0m14:18:56.352343 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:18:56.352615 [debug] [MainThread]: running dbt with arguments {'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'cache_selected_only': 'False', 'no_print': 'None', 'fail_fast': 'False', 'use_experimental_parser': 'False', 'version_check': 'True', 'partial_parse': 'True', 'use_colors': 'True', 'printer_width': '80', 'quiet': 'False', 'profiles_dir': '/Users/naomi/Shipping a Data Product/medical_warehouse', 'send_anonymous_usage_stats': 'True', 'empty': 'None', 'log_cache_events': 'False', 'warn_error': 'None', 'log_format': 'default', 'indirect_selection': 'eager', 'log_path': '/Users/naomi/Shipping a Data Product/medical_warehouse/logs', 'invocation_command': 'dbt debug'}
+[0m14:18:56.361634 [info ] [MainThread]: dbt version: 1.11.2
+[0m14:18:56.361841 [info ] [MainThread]: python version: 3.11.14
+[0m14:18:56.361984 [info ] [MainThread]: python path: /Users/naomi/Shipping a Data Product/medical_warehouse/venv/bin/python3.11
+[0m14:18:56.362104 [info ] [MainThread]: os info: macOS-14.5-arm64-arm-64bit
+[0m14:18:56.395178 [info ] [MainThread]: Using profiles dir at /Users/naomi/Shipping a Data Product/medical_warehouse
+[0m14:18:56.395397 [info ] [MainThread]: Using profiles.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/profiles.yml
+[0m14:18:56.395519 [info ] [MainThread]: Using dbt_project.yml file at /Users/naomi/Shipping a Data Product/medical_warehouse/dbt_project.yml
+[0m14:18:56.395719 [info ] [MainThread]: adapter type: postgres
+[0m14:18:56.395876 [info ] [MainThread]: adapter version: 1.10.0
+[0m14:18:56.431071 [info ] [MainThread]: Configuration:
+[0m14:18:56.431304 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:18:56.431429 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m14:18:56.431536 [info ] [MainThread]: Required dependencies:
+[0m14:18:56.431683 [debug] [MainThread]: Executing "git --help"
+[0m14:18:56.449019 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c name=value]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   reset      Reset current HEAD to the specified state\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   branch     List, create, or delete branches\n   checkout   Switch branches or restore working tree files\n   commit     Record changes to the repository\n   diff       Show changes between commits, commit and working tree, etc\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\n""
+[0m14:18:56.449447 [debug] [MainThread]: STDERR: "b''"
+[0m14:18:56.449583 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:18:56.449717 [info ] [MainThread]: Connection:
+[0m14:18:56.449856 [info ] [MainThread]:   host: localhost
+[0m14:18:56.449956 [info ] [MainThread]:   port: 5432
+[0m14:18:56.450057 [info ] [MainThread]:   user: postgres
+[0m14:18:56.450153 [info ] [MainThread]:   database: medical_warehouse
+[0m14:18:56.450248 [info ] [MainThread]:   schema: staging
+[0m14:18:56.450343 [info ] [MainThread]:   connect_timeout: 10
+[0m14:18:56.450437 [info ] [MainThread]:   role: None
+[0m14:18:56.450537 [info ] [MainThread]:   search_path: None
+[0m14:18:56.450630 [info ] [MainThread]:   keepalives_idle: 0
+[0m14:18:56.450725 [info ] [MainThread]:   sslmode: None
+[0m14:18:56.450819 [info ] [MainThread]:   sslcert: None
+[0m14:18:56.450912 [info ] [MainThread]:   sslkey: None
+[0m14:18:56.451010 [info ] [MainThread]:   sslrootcert: None
+[0m14:18:56.451104 [info ] [MainThread]:   application_name: dbt
+[0m14:18:56.451201 [info ] [MainThread]:   retries: 1
+[0m14:18:56.451443 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:18:56.491044 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m14:18:56.508541 [debug] [MainThread]: Using postgres connection "debug"
+[0m14:18:56.508713 [debug] [MainThread]: On debug: select 1 as id
+[0m14:18:56.508825 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:18:56.544819 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+[0m14:18:56.550990 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m14:18:56.551110 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m14:18:56.551233 [debug] [MainThread]: On debug: No close available on handle
+[0m14:18:56.551358 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m14:18:56.551491 [info ] [MainThread]: [31m1 check failed:[0m
+[0m14:18:56.551603 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m14:18:56.552727 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.23057875, "process_in_blocks": "0", "process_kernel_time": 0.123897, "process_mem_max_rss": "126599168", "process_out_blocks": "0", "process_user_time": 0.587573}
+[0m14:18:56.552903 [debug] [MainThread]: Command `dbt debug` failed at 14:18:56.552867 after 0.23 seconds
+[0m14:18:56.553029 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:18:56.553159 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c125b90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1046cb710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11af16a50>]}
+[0m14:18:56.553318 [debug] [MainThread]: Flushing usage events
+[0m14:18:57.506328 [debug] [MainThread]: An error was encountered while trying to flush usage events
