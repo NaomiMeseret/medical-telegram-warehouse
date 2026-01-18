@@ -1,0 +1,18 @@
+# dbt profiles.yml configuration
+# This file should be placed in ~/.dbt/profiles.yml or referenced via DBT_PROFILES_DIR
+# For project-specific profiles, we'll reference environment variables
+
+medical_warehouse:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', 'localhost') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | as_number }}"
+      user: "{{ env_var('POSTGRES_USER', 'postgres') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', '') }}"
+      dbname: "{{ env_var('POSTGRES_DB', 'medical_warehouse') }}"
+      schema: staging
+      threads: 4
+      keepalives_idle: 0
+      connect_timeout: 10
