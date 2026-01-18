@@ -2,15 +2,6 @@
 
 An end-to-end data pipeline for Telegram medical channels, leveraging dbt for transformation, Dagster for orchestration, and YOLOv8 for data enrichment.
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Step-by-Step Setup Guide](#step-by-step-setup-guide)
-- [Task 1: Data Scraping and Collection](#task-1-data-scraping-and-collection)
-- [Next Steps](#next-steps)
-
 ## 🎯 Overview
 
 This project builds a robust data platform that generates actionable insights about Ethiopian medical businesses using data scraped from public Telegram channels.
